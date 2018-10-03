@@ -23,5 +23,7 @@ Fixed bugs
  - Fill your parameters.yml
  - `php app/console d:d:c` to create database
  - `php app/console d:s:u` to update database schema
- - Run it !
+ - Run it ! `php app/console server:run` (if php < 7.1) else run it inside /web folder
+ 
+ Good Game :)
 
