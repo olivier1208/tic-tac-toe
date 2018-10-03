@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body mx-auto">
+        <div class="board ">
+            <table class="table-bordered text-center">
+                {% for row in grid %}
+                    <tr>
+                        {% for cell in row %}
+                            <td width="50px" height="50px">
+                                <span class=" font-weight-bold text-center {% if cell == 'x' %} text-danger {% elseif cell == 'o' %} text-primary {% endif %}">&nbsp;
+                                    {{ cell }}
+                                    &nbsp;</span>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+<div class="container">
+    {% include 'AppBundle:Board:board.html.twig' with grid %}
+
+    End: {{ message }}<br/>
+    <a href="{{ path('start') }}" class="btn btn-primary">Restart</a>
+</div>
+
+{% endblock body %}
+

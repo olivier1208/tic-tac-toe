@@ -1,0 +1,23 @@
+default:
+    path: /
+    defaults: { _controller: "AppBundle:Game:index" }
+
+start:
+    path: /start
+    defaults: { _controller: "AppBundle:Game:start" }
+
+restart:
+    path: /restart
+    defaults: { _controller: "AppBundle:Game:restart" }
+
+play:
+    path: /play/{row}-{col}
+    defaults: { _controller: "AppBundle:Game:play" }
+
+end:
+    path: /end
+    defaults: { _controller: "AppBundle:Game:end" }
+
+save_for_later:
+    path: /save_for_later/{currentGame}/{status}
+    defaults: { _controller: "AppBundle:Game:saveForLater" }

@@ -1,0 +1,10 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+    <div class="container mt-5">
+
+            {% include 'AppBundle:Board:board.html.twig' with grid %}
+            {% include 'AppBundle:Board:currentPlayer.html.twig' with grid %}
+            {% include 'AppBundle:Board:controls.html.twig' %}
+    </div>
+
+{% endblock body %}

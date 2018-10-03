@@ -1,0 +1,28 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+    <div class="text-center m-2 p-2">
+        <div class="messages">
+            {% for msg in messages %}
+                <h4 class="message  text-danger">
+                    <i class="fas fa-info-circle text-danger"></i>&nbsp;
+                    {{ msg|capitalize }}
+                </h4>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'AppBundle:Board:board.html.twig' with grid %}
+    {% include 'AppBundle:Board:currentPlayer.html.twig' with grid %}
+    {% include 'AppBundle:Board:controls.html.twig' %}
+    <hr width="30%" class="mt-3">
+    <div class="mt-5">
+        <div class="col text-center">
+            <a href="{{ path('save_for_later', {'currentGame': app.session.get('game'), 'status': 'not_finished'}) }}" class="btn btn-info">
+                <i class="fas fa-save"></i>&nbsp;
+                Save my game now
+            </a>
+        </div>
+
+    </div>
+
+{% endblock body %}
