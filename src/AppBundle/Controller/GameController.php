@@ -65,7 +65,6 @@ class GameController extends Controller {
 			// Loading the old game
 			$gameModel = new GameModel($this->get('session'));
 			$game = $gameModel->loadSavedGame($latestGame->getGame());
-			dump($game);
 		} else {
 			$this->get('session')->clear();
 			$places = [];
@@ -140,6 +139,7 @@ class GameController extends Controller {
 		if (Game::STATE_TIE == $game->getState()) {
 			$message = 'Game Over: tie! how boring!';
 		} else {
+			$winningCells = $game->getWinningPositions($game->getBoard()->getGrid(), $game->getWinner());
 			$message = 'Game Over: ' . $game->getWinner() . ' has won!';
 		}
 		$latestGame->setStatus('finished');
@@ -151,6 +151,7 @@ class GameController extends Controller {
 			'AppBundle:Game:end.html.twig', array(
 			'message' => $message,
 			'grid'    => $game->getBoard()->getGrid(),
+			'winningCells' => $winningCells
 		));
 	}
 

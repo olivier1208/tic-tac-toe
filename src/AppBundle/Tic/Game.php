@@ -33,9 +33,7 @@ class Game {
 	}
 
 	public function makeMove($row, $col) {
-//		var_dump($row, $col);
 		$place = $row . $col;
-//		var_dump($place);
 		$this->board->setSquare($row, $col, $this->currentPlayer);
 		$this->switchPlayer();
 
@@ -128,6 +126,26 @@ class Game {
 		$data = json_decode($json, true);
 		$this->board->loadBoard($data[ 'grid' ]);
 		$this->currentPlayer = $data[ 'currentPlayer' ];
+	}
+
+	public function getWinningPositions($bd, $lt) {
+		if ($bd[ 0 ][ 0 ] === $lt && $bd[ 0 ][ 1 ] === $lt && $bd[ 0 ][ 2 ] === $lt) {
+			return [0, 1, 2];
+		} else if ($bd[ 1 ][ 0 ] === $lt && $bd[ 1 ][ 1 ] === $lt && $bd[ 1 ][ 2 ] === $lt) {
+			return [3, 4, 5];
+		} else if ($bd[ 2 ][ 0 ] === $lt && $bd[ 2 ][ 1 ] === $lt && $bd[ 2 ][ 2 ] === $lt) {
+			return [6, 7, 8];
+		} else if ($bd[ 0 ][ 0 ] === $lt && $bd[ 1 ][ 0 ] === $lt && $bd[ 2 ][ 0 ] === $lt) {
+			return [0, 3, 6];
+		} else if ($bd[ 0 ][ 1 ] === $lt && $bd[ 1 ][ 1 ] === $lt && $bd[ 2 ][ 1 ] === $lt) {
+			return [1, 4, 7];
+		} else if ($bd[ 0 ][ 2 ] === $lt && $bd[ 1 ][ 2 ] === $lt && $bd[ 2 ][ 2 ] === $lt) {
+			return [2, 5, 8];
+		} else if ($bd[ 0 ][ 2 ] === $lt && $bd[ 1 ][ 1 ] === $lt && $bd[ 2 ][ 0 ] === $lt) {
+			return [2, 4, 6];
+		} else {
+			return [0, 4, 8];
+		}
 	}
 
 }

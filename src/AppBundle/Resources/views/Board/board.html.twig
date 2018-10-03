@@ -2,10 +2,12 @@
     <div class="card-body mx-auto">
         <div class="board ">
             <table class="table-bordered text-center">
+                {% set totalCells = -1 %}
                 {% for row in grid %}
                     <tr>
                         {% for cell in row %}
-                            <td width="50px" height="50px">
+                            {% set totalCells = totalCells + 1 %}
+                            <td width="50px" height="50px" {% if winningCells is defined and totalCells in winningCells %} class="bg-success" {% endif %}>
                                 <span class=" font-weight-bold text-center {% if cell == 'x' %} text-danger {% elseif cell == 'o' %} text-primary {% endif %}">&nbsp;
                                     {{ cell }}
                                     &nbsp;</span>

@@ -45,13 +45,11 @@ class Board {
 	}
 
 	public function getSquare($row, $col) {
-//		$grid = ['row' => $row, 'col', $col];
 		return $this->grid[ $row ][ $col ];
 	}
 
 	public function setSquare($row, $col, $val) {
 		$this->grid[ $row ][ $col ] = $val;
-
 		return $this->getSquare($row, $col);
 	}
 

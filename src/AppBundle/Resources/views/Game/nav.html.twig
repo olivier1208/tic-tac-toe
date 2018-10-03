@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=" {{ path('start') }}">Play or Resume the Game</a>
+                    <a class="nav-link" href=" {{ path('start') }}">{% if latestGameStatus is defined and latestGameStatus != 'finished' %} Resume {% else %} Play {% endif %} the Game</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">What about ?</a>
